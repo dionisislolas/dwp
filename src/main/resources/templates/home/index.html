@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::header"></head>
+<body>
+
+<div class="container">
+
+    <h1><span th:text="${city}">City</span></h1>
+    <hr>
+    <a th:href="@{http://localhost:8080/api/city/} + ${city} + @{/users}">API</a>
+    <br /><br />
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Ip Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${userList}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getFirstName()}"></td>
+            <td th:text="${user.getLastName()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+            <td th:text="${user.getIpAddress()}"></td>
+            <td th:text="${user.getLatitude()}"></td>
+            <td th:text="${user.getLongitude()}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
